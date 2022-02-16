@@ -21,5 +21,5 @@ public interface CustomerRepo extends MongoRepository<Customer, String> {
     Optional<Customer> findByAuthor(String name);
 
 
-
+    Optional<Customer> findById(Integer id);
 }
