@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public abstract class CustomerServiceImpl implements CustomerService{
 
     @Autowired
     CustomerRepo customerRepo;
@@ -35,5 +35,9 @@ public class CustomerServiceImpl implements CustomerService{
         return customerRepo.findAll();
     }
 
+    @Override
+   public  Optional<Customer> findByCustomerId(Integer id){
+       return customerRepo.findById(id);
+    }
 
 }
