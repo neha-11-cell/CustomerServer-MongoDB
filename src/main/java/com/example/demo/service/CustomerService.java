@@ -11,9 +11,15 @@ public interface CustomerService {
 
     Customer addCustomer(Customer customer);
 
-    Optional<Customer> getCustomerName(String name);
-
     Optional<Customer> getCustomerCity(String name);
+
+    Optional<Customer> getCustomerFirstName(String name);
+
+    Optional<Customer> getCustomerMiddleName(String name);
+
+    Optional<Customer> getCustomerLastName(String name);
+
+    Optional<Customer> getCurrentDate(String name);
 
     List<Customer> getAllCustomer();
 

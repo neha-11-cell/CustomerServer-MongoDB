@@ -9,21 +9,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-
+@RequestMapping("/service")
 public class CustomerController {
 
     @Autowired
     CustomerService customerService;
 
     @Autowired
+    private RestTemplate restTemplate;
+
+    @Autowired
     Accountfeign accountfeign;
 
     @PostMapping("/customer")
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
+    public ResponseEntity<Customer> createCustomer(@Valid @RequestBody Customer customer){
         try{
             Customer _customer = customerService.addCustomer(customer);
             return new ResponseEntity<>(_customer, HttpStatus.CREATED);

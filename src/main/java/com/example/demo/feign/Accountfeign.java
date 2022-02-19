@@ -1,5 +1,6 @@
 package com.example.demo.feign;
 
+import com.example.demo.config.CustomerRetryClientConfig;
 import com.example.demo.model.Account;
 import com.example.demo.model.Customer;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-
-@FeignClient(name = "Customer-Server", fallbackFactory = HystrixFallBackFactory.class)
+@FeignClient(name = "ACCOUNT-SERVICE", configuration = CustomerRetryClientConfig.class,fallbackFactory = HystrixFallBackFactory.class)
+//@FeignClient(name = "Customer-Server", fallbackFactory = HystrixFallBackFactory.class)
 public interface Accountfeign {
 
     @GetMapping("/customer/{id}")
