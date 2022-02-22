@@ -2,12 +2,14 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @EnableFeignClients
+@EnableEurekaClient
 @SpringBootApplication(scanBasePackages={
 		"com.example.something", "com.example.application"})
 public class DemoApplication {
@@ -16,9 +18,9 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	//@LoadBalanced
 	public RestTemplate getRestTemplate(){
 		return new RestTemplate();
-	}
+	} */
 }

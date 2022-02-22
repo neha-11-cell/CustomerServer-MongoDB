@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.enumeration.AccountType;
 import lombok.Data;
 
 import java.util.Date;
@@ -25,4 +26,6 @@ public class Account {
         this.currentDate = currentDate;
         this.active = active;
     }
+
+    private AccountType accountType ;
 }
